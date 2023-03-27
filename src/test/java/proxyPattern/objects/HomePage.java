@@ -1,0 +1,30 @@
+package proxyPattern.objects;
+
+import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+
+import static com.codeborne.selenide.Selenide.$x;
+
+public class HomePage implements SourceInfo{
+    // region unauth block /////////////////////////////////////////////////////
+    private final SelenideElement loginBtn = $x("//div[@class=\"fullcontent\"]//li/a[1]");
+    private final SelenideElement registerBtn = $x("//div[@class=\"fullcontent\"]//li/a[2]");
+    private final SelenideElement logo = $x("//ul[@class=\"logo\"]");
+    // endregion
+
+    // region auth block /////////////////////////////////////////////////////
+    private final SelenideElement profileName = $x("//ul[@class=\"profile-block1\"]/li[2]");
+    // endregion
+
+    public void clickOnLoginBtn() {
+        loginBtn.click();
+    }
+
+    public String getProfileName() {
+        return profileName.getText();
+    }
+    @Override
+    public String getSource(String pageName) {
+        return WebDriverRunner.source();
+    }
+}
