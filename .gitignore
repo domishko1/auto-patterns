@@ -1,0 +1,11 @@
+.gradle
+.idea/
+*.iml
+target/
+build/
+out/
+.xcconfig
+.DS_Store
+.DS_Store?
+elementImage.png
+.allure
